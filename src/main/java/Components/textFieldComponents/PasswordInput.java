@@ -18,6 +18,7 @@ public class PasswordInput {
 		PasswordField passwordInput = new PasswordField();
 		passwordInput.setPromptText("Password");
 		passwordInput.setFont(Font.font("System", 16));
+		passwordInput.setStyle("-fx-prompt-text-fill: black");
 		passwordInput.setBorder(TextFieldBorder.textBorder());
 		passwordInput.setBackground(null);
 		passwordInput.setMaxWidth(300);

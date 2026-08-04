@@ -7,6 +7,7 @@ public class Users {
 //	private static ArrayList<Users> allUsers;
 	private String FirstName;
 	private String LastName;
+	private String Role;
 	private String UserEmail;
 	private String Password;
 	static ArrayList<Users> allUsers =new ArrayList<>();
@@ -23,6 +24,12 @@ public class Users {
 	}
 	public void setLastName(String lastName) {
 		LastName = lastName;
+	}
+	public String getRole() {
+		return Role;
+	}
+	public void setRole(String role) {
+		Role = role;
 	}
 	public String getUserEmail() {
 		return UserEmail;
@@ -42,17 +49,19 @@ public class Users {
 	    return "Users{" +
 	            "First Name='" + FirstName + '\'' +
 	            ", Last Name='" + LastName + '\''+
+	            ", role='" + Role + '\'' +
 	            ", email='" + UserEmail + '\''+
 	            ", password='" + Password + '\'' +
 	            '}';
 	}
 	
 	
-	public static void createUser(String fName, String lName, String uEmail, String uPassword) {
+	public static void createUser(String fName, String lName, String uRole, String uEmail, String uPassword) {
 		
 		Users newUser = new Users();
 		newUser.setFirstName(fName);
 		newUser.setLastName(lName);
+		newUser.setRole(uRole);
 		newUser.setUserEmail(uEmail);
 		newUser.setPassword(uPassword);
 		allUsers.add(newUser);
@@ -61,17 +70,27 @@ public class Users {
 		System.out.print(newUser);
 		
 	}
-//	
-//	public static ArrayList usersCreated() {
-//		ArrayList<Users> newUsers;
-//		newUsers = new ArrayList<Users>();
-//		
-//		
-//		
-//		
-//		return null;
-//		
-//	}
+
+	
+	
+	//<Search For Users in DataBase
+	
+	public static boolean userSearch(String email, String password) {
+		
+		for(Users userIndex: allUsers) {
+			if (userIndex.getUserEmail() == email & userIndex.getPassword() == password) {
+			return true;	
+			
+			}else {
+				return false;
+			}
+			
+		}
+		return false;
+		
+		
+	}
+	
 	
 	
 	

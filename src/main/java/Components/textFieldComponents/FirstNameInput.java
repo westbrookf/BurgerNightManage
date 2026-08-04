@@ -17,7 +17,7 @@ public class FirstNameInput {
 		TextField firstNameInput = new TextField();
 		firstNameInput.setPromptText("First name");
 		firstNameInput.setFont(Font.font("System", 18));
-		firstNameInput.setStyle("-fx-prompt-text-fill: darkgrey;");
+		firstNameInput.setStyle("-fx-prompt-text-fill: black;");
 		firstNameInput.setBorder(TextFieldBorder.textBorder());
 		firstNameInput.setBackground(null);
 		firstNameInput.setMaxWidth(300);

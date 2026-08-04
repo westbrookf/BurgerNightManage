@@ -1,4 +1,5 @@
 package Components.Containers;
+import Components.utilities.BackgroundFillers;
 import javafx.application.Application;
 import javafx.geometry.HPos;
 import javafx.scene.Scene;
@@ -13,14 +14,14 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
-public class NumberGuesser extends Application {
+public class MainStage extends Application {
 
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		
 		MainPaneContainer.show(
-			    TitleAndLoginOptionsContainer.titleLoginContainer()
+			    TitleAndLoginOptionsContainer.titleLoginContainer(), BackgroundFillers.loginBackground
 			);
 		
 		Scene scene = new Scene(
@@ -40,7 +41,7 @@ public class NumberGuesser extends Application {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Application.launch(NumberGuesser.class, args);
+		Application.launch(MainStage.class, args);
 
 	}
 

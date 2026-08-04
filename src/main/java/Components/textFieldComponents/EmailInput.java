@@ -17,6 +17,7 @@ public class EmailInput {
 		TextField emailInput = new TextField();
 		emailInput.setPromptText("Email");
 		emailInput.setFont(Font.font("System", 16));
+		emailInput.setStyle("-fx-prompt-text-fill: black");
 		emailInput.setBorder(TextFieldBorder.textBorder());
 		emailInput.setBackground(null);
 		emailInput.setMaxWidth(300);

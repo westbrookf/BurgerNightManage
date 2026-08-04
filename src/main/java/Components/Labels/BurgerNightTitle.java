@@ -17,6 +17,7 @@ public class BurgerNightTitle {
 				companyName.setMaxWidth(500);
 				companyName.setAlignment(Pos.CENTER);
 				companyName.setFont(Font.font("System", FontWeight.BOLD, 40));
+//				companyName.set
 				return companyName;
 	}
 }

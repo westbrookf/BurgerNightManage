@@ -16,8 +16,9 @@ public class TitleAndLoginOptionsContainer {
 //				accountOptionsContainer.getChildren().addAll( 0, LoginOrCreateAccountBtnsContainer.loginorCreateContainer());
 				accountOptionsContainer.setMinWidth(320);
 				accountOptionsContainer.setMaxWidth(900);
+				accountOptionsContainer.setMinHeight(620);
 				accountOptionsContainer.setAlignment(Pos.CENTER);
-				accountOptionsContainer.setMargin(BurgerNightTitle.companyTitle(), new Insets(200,0,0,0));
+				accountOptionsContainer.setMargin(BurgerNightTitle.companyTitle(), new Insets(350,0,0,0));
 				return accountOptionsContainer;
 	}
 }

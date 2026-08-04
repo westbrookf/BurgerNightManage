@@ -18,6 +18,7 @@ public class ConfirmPasswordInput {
 		PasswordField confirmPasswordInput = new PasswordField();
 		confirmPasswordInput.setPromptText("Confirm your password");
 		confirmPasswordInput.setFont(Font.font("System", 16));
+		confirmPasswordInput.setStyle("-fx-prompt-text-fill: black");
 		confirmPasswordInput.setBorder(TextFieldBorder.textBorder());
 		confirmPasswordInput.setBackground(null);
 		confirmPasswordInput.setMaxWidth(300);

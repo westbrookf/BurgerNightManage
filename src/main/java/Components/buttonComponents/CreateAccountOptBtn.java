@@ -4,8 +4,9 @@ import java.util.List;
 
 import Components.Containers.CreateaccountFormContainer;
 import Components.Containers.MainPaneContainer;
-import Components.Containers.NumberGuesser;
+import Components.Containers.MainStage;
 import Components.Containers.TitleAndLoginOptionsContainer;
+import Components.utilities.BackgroundFillers;
 import javafx.animation.FadeTransition;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -38,7 +39,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class CreateAccountOptBtn extends NumberGuesser {
+public class CreateAccountOptBtn extends MainStage {
 	
 	public static Button createAccOptBtn() {
 		
@@ -56,6 +57,7 @@ public class CreateAccountOptBtn extends NumberGuesser {
 //		createAccountBtn.setMinHeight(35);
 		createAccountBtn.setOnAction(e -> createAccount());
 		createAccountBtn.setOnMouseEntered(e -> {
+			
 		createAccountBtn.setTextFill(Color.RED);
 		});
 		createAccountBtn.setOnMouseExited(e -> {
@@ -73,7 +75,7 @@ public class CreateAccountOptBtn extends NumberGuesser {
 
 	private static void createAccount() {
 		MainPaneContainer.show(
-		        CreateaccountFormContainer.createAccountFContainer()
+		        CreateaccountFormContainer.createAccountFContainer(), BackgroundFillers.WHITE_BACKGROUND
 		    );
 		
 	}

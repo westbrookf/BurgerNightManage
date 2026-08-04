@@ -9,6 +9,8 @@ import Components.textFieldComponents.EmailInput;
 import Components.textFieldComponents.FirstNameInput;
 import Components.textFieldComponents.LastNameInput;
 import Components.textFieldComponents.PasswordInput;
+import Components.textFieldComponents.RoleInput;
+import Components.utilities.BackgroundFillers;
 import javafx.animation.FadeTransition;
 import javafx.scene.Cursor;
 import javafx.scene.control.Alert;
@@ -42,7 +44,7 @@ public class CreateAccountSubBtn {
 		createAccountFormBtn.setTextFill(Color.WHITESMOKE);
 		createAccountFormBtn.setMaxWidth(300);
 		createAccountFormBtn.setCursor(Cursor.HAND);
-		createAccountFormBtn.setOnAction(e -> submitNewAccount(FirstNameInput.firstNameInp(), LastNameInput.lastNameInp(), EmailInput.emailInp(), PasswordInput.passwordInp(), ConfirmPasswordInput.confirmPasswordInp(), TitleAndLoginOptionsContainer.titleLoginContainer(), CreateaccountFormContainer.createAccountFContainer()));
+		createAccountFormBtn.setOnAction(e -> submitNewAccount(FirstNameInput.firstNameInp(), LastNameInput.lastNameInp(), RoleInput.roleInp(), EmailInput.emailInp(), PasswordInput.passwordInp(), ConfirmPasswordInput.confirmPasswordInp(), TitleAndLoginOptionsContainer.titleLoginContainer(), CreateaccountFormContainer.createAccountFContainer()));
 		return createAccountFormBtn;
 	}
 	
@@ -54,10 +56,11 @@ public class CreateAccountSubBtn {
 //	}
 
 		//Functionality of the create account button at the bottom of the create account form. THIS WILL GO WITH THE CREATE ACCOUNT BUTTON IN WHATEVER COMPONENT FOLDER IT WILL BE IN
-		public static void submitNewAccount(TextField firstName, TextField lastName, TextField email, PasswordField password, PasswordField confirmPassword, VBox accountOptionsContainer2, VBox createContain){
+		public static void submitNewAccount(TextField firstName, TextField lastName, TextField role, TextField email, PasswordField password, PasswordField confirmPassword, VBox accountOptionsContainer2, VBox createContain){
 			
 			var finalFName = firstName.getText();
 			var finalLName = lastName.getText();
+			var finalRole = role.getText();
 			var finalEmail = email.getText();
 			var finalPassword = password.getText();
 			var finalConfirm = confirmPassword.getText();
@@ -70,7 +73,7 @@ public class CreateAccountSubBtn {
 				wrongPasswordConfirm.showAndWait();
 			}else {
 				//Method call to the class users method createUser to create the user submitted
-				Users.createUser(finalFName, finalLName, finalEmail, finalPassword);
+				Users.createUser(finalFName, finalLName, finalRole, finalEmail, finalPassword);
 				
 				
 				
@@ -91,7 +94,7 @@ public class CreateAccountSubBtn {
 //				pane2.setBackground(new Background(bgImage1));
 				
 				MainPaneContainer.show(
-					    TitleAndLoginOptionsContainer.titleLoginContainer()
+					    TitleAndLoginOptionsContainer.titleLoginContainer(),BackgroundFillers.loginBackground
 					);				
 				
 			}

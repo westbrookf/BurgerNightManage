@@ -16,6 +16,7 @@ public class LastNameInput {
 		TextField lastNameInput = new TextField();
 		lastNameInput.setPromptText("Last name");
 		lastNameInput.setFont(Font.font("System", 18));
+		lastNameInput.setStyle("-fx-prompt-text-fill: black");
 		lastNameInput.setBorder(TextFieldBorder.textBorder());
 		lastNameInput.setBackground(null);
 		lastNameInput.setMaxWidth(300);
