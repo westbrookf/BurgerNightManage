@@ -1,18 +1,27 @@
 package Backend;
 import java.util.ArrayList;
 
+import Components.DropDowns.CompRoleInput;
+
 public class Users {
 	
 	
 //	private static ArrayList<Users> allUsers;
+	private int UserId;
 	private String FirstName;
 	private String LastName;
-	private String Role;
+	private Role UserRole;
 	private String UserEmail;
-	private String Password;
+	private String PasswordHash;
 	static ArrayList<Users> allUsers =new ArrayList<>();
 	
 	
+	public int getUserId() {
+		return UserId;
+	}
+	public void setUserId(int userId) {
+		UserId = userId;
+	}
 	public String getFirstName() {
 		return FirstName;
 	}
@@ -25,11 +34,11 @@ public class Users {
 	public void setLastName(String lastName) {
 		LastName = lastName;
 	}
-	public String getRole() {
-		return Role;
+	public Role getUserRole() {
+		return UserRole;
 	}
-	public void setRole(String role) {
-		Role = role;
+	public void setUserRole(Role userRole) {
+		UserRole = userRole;
 	}
 	public String getUserEmail() {
 		return UserEmail;
@@ -37,69 +46,13 @@ public class Users {
 	public void setUserEmail(String userEmail) {
 		UserEmail = userEmail;
 	}
-	public String getPassword() {
-		return Password;
+	public String getPasswordHash() {
+		return PasswordHash;
 	}
-	public void setPassword(String password) {
-		Password = password;
-	}
-	
-	@Override
-	public String toString() {
-	    return "Users{" +
-	            "First Name='" + FirstName + '\'' +
-	            ", Last Name='" + LastName + '\''+
-	            ", role='" + Role + '\'' +
-	            ", email='" + UserEmail + '\''+
-	            ", password='" + Password + '\'' +
-	            '}';
+	public void setPasswordHash(String passwordHash) {
+		PasswordHash = passwordHash;
 	}
 	
 	
-	public static void createUser(String fName, String lName, String uRole, String uEmail, String uPassword) {
 		
-		Users newUser = new Users();
-		newUser.setFirstName(fName);
-		newUser.setLastName(lName);
-		newUser.setRole(uRole);
-		newUser.setUserEmail(uEmail);
-		newUser.setPassword(uPassword);
-		allUsers.add(newUser);
-		
-		
-		System.out.print(newUser);
-		
-	}
-
-	
-	
-	//<Search For Users in DataBase
-	
-	public static boolean userSearch(String email, String password) {
-		
-		for(Users userIndex: allUsers) {
-			if (userIndex.getUserEmail() == email & userIndex.getPassword() == password) {
-			return true;	
-			
-			}else {
-				return false;
-			}
-			
-		}
-		return false;
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

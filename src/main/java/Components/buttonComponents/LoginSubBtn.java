@@ -1,5 +1,10 @@
 package Components.buttonComponents;
 
+import javax.security.auth.login.FailedLoginException;
+
+import Backend.Security;
+import Backend.Session;
+import Backend.UserDAO;
 import Backend.Users;
 import Components.Containers.MainPaneContainer;
 import Components.Containers.TitleAndLoginOptionsContainer;
@@ -15,7 +20,7 @@ import javafx.scene.text.Font;
 
 public class LoginSubBtn {
 
-		public static Button submitLogin() {
+		public static Button submitLogin(TextField email, PasswordField password) {
 			
 			Button createAccountFormBtn = new Button();
 			createAccountFormBtn.setText("Login");
@@ -25,7 +30,14 @@ public class LoginSubBtn {
 			createAccountFormBtn.setTextFill(Color.WHITESMOKE);
 			createAccountFormBtn.setMaxWidth(300);
 			createAccountFormBtn.setCursor(Cursor.HAND);
-			createAccountFormBtn.setOnAction(e -> loginSubmit(EmailInput.emailInp(), PasswordInput.passwordInp()));
+			createAccountFormBtn.setOnAction(e -> {
+				try {
+					loginSubmit(email, password);
+				} catch (FailedLoginException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			});
 			return createAccountFormBtn;
 		}
 		
@@ -37,26 +49,21 @@ public class LoginSubBtn {
 //		}
 
 			//Functionality of the create account button at the bottom of the create account form. THIS WILL GO WITH THE CREATE ACCOUNT BUTTON IN WHATEVER COMPONENT FOLDER IT WILL BE IN
-			public static void loginSubmit( TextField email, PasswordField password){
+			public static void loginSubmit( TextField email, PasswordField password) throws FailedLoginException{
 				
 				var finalEmail = email.getText();
 				var finalPassword = password.getText();
 				
+				Users user = UserDAO.findByEmail(finalEmail);
 				
-				
-//				if(!finalConfirm.equals(finalPassword)) {
-//					//Creation of the alert of the confirmation password and the password created not matching. THIS WILL GO IN THE ALERTS COMPONENT FOLDER 
-//					Alert wrongPasswordConfirm = new Alert(AlertType.ERROR, "Passwords do not match, please reenter your passwords", ButtonType.OK);
-//					wrongPasswordConfirm.showAndWait();
-//				}else {
-//					//Method call to the class users method createUser to create the user submitted
-//					Users.createUser(finalFName, finalLName, finalEmail, finalPassword);
-					
-					
-					
+				if (user != null && Security.verifyPassword(password.getText(), user.getPasswordHash())) {
+					Session.login(user);
 					MainPaneContainer.show(
 						    TitleAndLoginOptionsContainer.titleLoginContainer(),BackgroundFillers.loginBackground
-						);				
+						);
+				}else {
+					throw new FailedLoginException("Incorrect email or password");
+				}
 					
 			}
 

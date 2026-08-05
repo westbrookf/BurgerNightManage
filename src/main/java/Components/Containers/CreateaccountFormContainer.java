@@ -1,5 +1,7 @@
 package Components.Containers;
 
+import Backend.Role;
+import Components.DropDowns.CompRoleInput;
 import Components.Labels.CreateAccountFormLabel;
 import Components.buttonComponents.AccountCreateFormBackBtn;
 import Components.buttonComponents.CreateAccountSubBtn;
@@ -8,9 +10,10 @@ import Components.textFieldComponents.EmailInput;
 import Components.textFieldComponents.FirstNameInput;
 import Components.textFieldComponents.LastNameInput;
 import Components.textFieldComponents.PasswordInput;
-import Components.textFieldComponents.RoleInput;
+//import Components.textFieldComponents.RoleInput;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 
 public class CreateaccountFormContainer {
@@ -21,11 +24,11 @@ public class CreateaccountFormContainer {
 		var title = CreateAccountFormLabel.createAccountLabel();
 		var firstName = FirstNameInput.firstNameInp();
 		var lastName = LastNameInput.lastNameInp();
-		var role = RoleInput.roleInp();
+		var role = CompRoleInput.roleInp();
 		var email = EmailInput.emailInp();
 		var password = PasswordInput.passwordInp();
 		var confirmPassword = ConfirmPasswordInput.confirmPasswordInp();
-		var submit = CreateAccountSubBtn.submitCreateAccForm();
+		var submit = CreateAccountSubBtn.submitCreateAccForm(firstName, lastName, role, email, password, confirmPassword);
 		var back = AccountCreateFormBackBtn.createAccountBackBtn();
 
 		

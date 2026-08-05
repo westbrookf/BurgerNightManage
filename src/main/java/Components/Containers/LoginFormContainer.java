@@ -23,7 +23,7 @@ public static VBox loginFormContain() {
 		var title = LoginLabel.userLoginLabel();
 		var email = EmailInput.emailInp();
 		var password = PasswordInput.passwordInp();
-		var submit = LoginSubBtn.submitLogin();
+		var submit = LoginSubBtn.submitLogin(email, password);
 		var back = LoginBackBtn.loginBackBtn();
 
 		

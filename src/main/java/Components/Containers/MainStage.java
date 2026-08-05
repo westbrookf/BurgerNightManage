@@ -1,4 +1,7 @@
 package Components.Containers;
+import java.sql.Connection;
+
+import Backend.DataBase;
 import Components.utilities.BackgroundFillers;
 import javafx.application.Application;
 import javafx.geometry.HPos;
@@ -42,6 +45,13 @@ public class MainStage extends Application {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Application.launch(MainStage.class, args);
+		
+//		try(Connection con = DataBase.getConnection()) {
+//			System.out.println("Connected");
+//		} catch (Exception e) {
+//			
+//			e.printStackTrace();
+//		}
 
 	}
 
