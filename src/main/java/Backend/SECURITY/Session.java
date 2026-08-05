@@ -1,4 +1,6 @@
-package Backend;
+package Backend.SECURITY;
+
+import Backend.MODEL.Users;
 
 public class Session {
 	

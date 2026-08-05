@@ -2,10 +2,10 @@ package Components.buttonComponents;
 
 import javax.security.auth.login.FailedLoginException;
 
-import Backend.Security;
-import Backend.Session;
-import Backend.UserDAO;
-import Backend.Users;
+import Backend.DAO.UserDAO;
+import Backend.MODEL.Users;
+import Backend.SECURITY.Security;
+import Backend.SECURITY.Session;
 import Components.Containers.MainPaneContainer;
 import Components.Containers.TitleAndLoginOptionsContainer;
 import Components.textFieldComponents.EmailInput;

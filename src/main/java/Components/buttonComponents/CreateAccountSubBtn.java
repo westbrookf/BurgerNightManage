@@ -1,9 +1,9 @@
 package Components.buttonComponents;
 
 import Backend.Role;
-import Backend.Security;
-import Backend.UserDAO;
-import Backend.Users;
+import Backend.DAO.UserDAO;
+import Backend.MODEL.Users;
+import Backend.SECURITY.Security;
 import Components.Containers.CreateaccountFormContainer;
 import Components.Containers.MainPaneContainer;
 import Components.Containers.TitleAndLoginOptionsContainer;
@@ -33,7 +33,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.util.Duration;
-import Backend.Users;
 
 public class CreateAccountSubBtn {
 

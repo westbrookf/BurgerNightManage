@@ -1,6 +1,7 @@
-package Backend;
+package Backend.MODEL;
 import java.util.ArrayList;
 
+import Backend.Role;
 import Components.DropDowns.CompRoleInput;
 
 public class Users {

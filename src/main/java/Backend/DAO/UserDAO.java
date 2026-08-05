@@ -1,6 +1,9 @@
-package Backend;
+package Backend.DAO;
 
 import Backend.DataBase;
+import Backend.Role;
+import Backend.MODEL.Users;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -163,6 +166,28 @@ public class UserDAO {
              PreparedStatement ps = con.prepareStatement(sql)) {
 
             ps.setInt(1, id);
+
+            return ps.executeUpdate() == 1;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+ static boolean changePassword(int userId, String newPassword) {
+
+        String sql = """
+                UPDATE users
+                SET password_hash = ?
+                WHERE id = ?
+                """;
+
+        try (Connection con = DataBase.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, newPassword);
+            ps.setInt(2, userId);
 
             return ps.executeUpdate() == 1;
 
