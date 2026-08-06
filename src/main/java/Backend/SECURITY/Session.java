@@ -1,12 +1,12 @@
 package Backend.SECURITY;
 
-import Backend.MODEL.Users;
+import Backend.MODEL.User;
 
 public class Session {
 	
-	private static Users currentUser;
+	private static User currentUser;
 	
-	public static void login(Users user) {
+	public static void login(User user) {
 		currentUser = user;
 	}
 	
@@ -14,7 +14,7 @@ public class Session {
         currentUser = null;
     }
 
-    public static Users getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
     }
 

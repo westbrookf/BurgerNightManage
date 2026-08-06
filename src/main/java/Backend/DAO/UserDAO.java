@@ -2,7 +2,7 @@ package Backend.DAO;
 
 import Backend.DataBase;
 import Backend.Role;
-import Backend.MODEL.Users;
+import Backend.MODEL.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class UserDAO {
     // ==========================
     // CREATE USER
     // ==========================
-    public static boolean createUser(Users user) {
+    public static boolean createUser(User user) {
 
         String sql = """
                 INSERT INTO users
@@ -43,7 +43,7 @@ public class UserDAO {
     // ==========================
     // FIND USER BY EMAIL
     // ==========================
-    public static Users findByEmail(String email) {
+    public static User findByEmail(String email) {
 
         String sql = """
                 SELECT *
@@ -60,7 +60,7 @@ public class UserDAO {
 
             if (rs.next()) {
 
-                Users user = new Users();
+                User user = new User();
 
                 user.setUserId(rs.getInt("id"));
                 user.setFirstName(rs.getString("first_name"));
@@ -82,7 +82,7 @@ public class UserDAO {
     // ==========================
     // FIND USER BY ID
     // ==========================
-    public static Users findById(int id) {
+    public static User findById(int id) {
 
         String sql = """
                 SELECT *
@@ -99,7 +99,7 @@ public class UserDAO {
 
             if (rs.next()) {
 
-                Users user = new Users();
+                User user = new User();
 
                 user.setUserId(rs.getInt("id"));
                 user.setFirstName(rs.getString("first_name"));
@@ -121,7 +121,7 @@ public class UserDAO {
     // ==========================
     // UPDATE USER
     // ==========================
-    public static boolean updateUser(Users user) {
+    public static boolean updateUser(User user) {
 
         String sql = """
                 UPDATE users

@@ -2,7 +2,7 @@ package Components.buttonComponents;
 
 import Backend.Role;
 import Backend.DAO.UserDAO;
-import Backend.MODEL.Users;
+import Backend.MODEL.User;
 import Backend.SECURITY.Security;
 import Components.Containers.CreateaccountFormContainer;
 import Components.Containers.MainPaneContainer;
@@ -78,7 +78,7 @@ public class CreateAccountSubBtn {
 
 		}
 		String hashedPassword = Security.hashPassword(finalPassword);
-		Users user = new Users();
+		User user = new User();
 		user.setFirstName(finalFName);
 		user.setLastName(finalLName);
 		user.setUserRole(finalRole);

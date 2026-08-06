@@ -3,7 +3,7 @@ package Components.buttonComponents;
 import javax.security.auth.login.FailedLoginException;
 
 import Backend.DAO.UserDAO;
-import Backend.MODEL.Users;
+import Backend.MODEL.User;
 import Backend.SECURITY.Security;
 import Backend.SECURITY.Session;
 import Components.Containers.MainPaneContainer;
@@ -54,7 +54,7 @@ public class LoginSubBtn {
 				var finalEmail = email.getText();
 				var finalPassword = password.getText();
 				
-				Users user = UserDAO.findByEmail(finalEmail);
+				User user = UserDAO.findByEmail(finalEmail);
 				
 				if (user != null && Security.verifyPassword(password.getText(), user.getPasswordHash())) {
 					Session.login(user);

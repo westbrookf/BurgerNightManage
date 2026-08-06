@@ -1,57 +1,57 @@
 package Backend.MODEL;
 import java.util.ArrayList;
 
-import Backend.Role;
+import Backend.MODEL.Role;
 import Components.DropDowns.CompRoleInput;
 
-public class Users {
+public class User {
 	
 	
 //	private static ArrayList<Users> allUsers;
-	private int UserId;
-	private String FirstName;
-	private String LastName;
-	private Role UserRole;
-	private String UserEmail;
-	private String PasswordHash;
-	static ArrayList<Users> allUsers =new ArrayList<>();
+	private int userId;
+	private String firstName;
+	private String lastName;
+	private Role role;
+	private String userEmail;
+	private String passwordHash;
+//	static ArrayList<User> allUsers =new ArrayList<>();
 	
 	
 	public int getUserId() {
-		return UserId;
+		return userId;
 	}
 	public void setUserId(int userId) {
-		UserId = userId;
+		userId = userId;
 	}
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		lastName = lastName;
 	}
 	public Role getUserRole() {
-		return UserRole;
+		return role;
 	}
-	public void setUserRole(Role userRole) {
-		UserRole = userRole;
+	public void setUserRole(Role role) {
+		role = role;
 	}
 	public String getUserEmail() {
-		return UserEmail;
+		return userEmail;
 	}
 	public void setUserEmail(String userEmail) {
-		UserEmail = userEmail;
+		userEmail = userEmail;
 	}
 	public String getPasswordHash() {
-		return PasswordHash;
+		return passwordHash;
 	}
 	public void setPasswordHash(String passwordHash) {
-		PasswordHash = passwordHash;
+		passwordHash = passwordHash;
 	}
 	
 	
