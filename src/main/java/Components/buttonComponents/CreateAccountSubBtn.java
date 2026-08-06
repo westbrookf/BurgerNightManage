@@ -1,6 +1,6 @@
 package Components.buttonComponents;
 
-import Backend.Role;
+import Backend.MODEL.Role;
 import Backend.DAO.UserDAO;
 import Backend.MODEL.User;
 import Backend.SECURITY.Security;

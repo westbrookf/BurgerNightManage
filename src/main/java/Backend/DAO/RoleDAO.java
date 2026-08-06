@@ -43,5 +43,38 @@ public class RoleDAO {
 		
 		return null;
 	}
+	
+	 public static Role findById(int roleId) {
+
+	        String sql = """
+	                SELECT *
+	                FROM roles
+	                WHERE id = ?
+	                """;
+
+	        try (Connection con = DataBase.getConnection();
+	             PreparedStatement ps = con.prepareStatement(sql)) {
+
+	            ps.setInt(1, roleId);
+
+	            ResultSet rs = ps.executeQuery();
+
+	            if (rs.next()) {
+
+	            	Role role = new Role();
+
+	                role.setId(rs.getInt("id"));
+	                role.setRoleName(rs.getString("role_name"));
+	                role.setDescription(rs.getString("description"));
+
+	                return role;
+	            }
+
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+
+	        return null;
+	    }
 
 }

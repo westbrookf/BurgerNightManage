@@ -26,32 +26,32 @@ public class User {
 	public String getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
-		firstName = firstName;
+	public void setFirstName(String FirstName) {
+		firstName = FirstName;
 	}
 	public String getLastName() {
 		return lastName;
 	}
-	public void setLastName(String lastName) {
-		lastName = lastName;
+	public void setLastName(String LastName) {
+		lastName = LastName;
 	}
 	public Role getUserRole() {
 		return role;
 	}
-	public void setUserRole(Role role) {
-		role = role;
+	public void setUserRole(Role Role) {
+		role = Role;
 	}
 	public String getUserEmail() {
 		return userEmail;
 	}
-	public void setUserEmail(String userEmail) {
-		userEmail = userEmail;
+	public void setUserEmail(String UserEmail) {
+		userEmail = UserEmail;
 	}
 	public String getPasswordHash() {
 		return passwordHash;
 	}
-	public void setPasswordHash(String passwordHash) {
-		passwordHash = passwordHash;
+	public void setPasswordHash(String PasswordHash) {
+		passwordHash = PasswordHash;
 	}
 	
 	

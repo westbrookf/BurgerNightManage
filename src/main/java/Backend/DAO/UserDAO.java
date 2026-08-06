@@ -1,8 +1,9 @@
 package Backend.DAO;
 
 import Backend.DataBase;
-import Backend.Role;
+import Backend.MODEL.Role;
 import Backend.MODEL.User;
+import Backend.DAO.RoleDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ public class UserDAO {
 
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
-            ps.setString(3, user.getUserRole().name());
+            ps.setInt(3, user.getUserRole().getId());
             ps.setString(4, user.getUserEmail());
             ps.setString(5, user.getPasswordHash());
 
@@ -60,12 +61,17 @@ public class UserDAO {
 
             if (rs.next()) {
 
+            	
+            	int roleId = rs.getInt("role_id");
+
+            	Role role = RoleDAO.findById(roleId);
+            	
                 User user = new User();
 
                 user.setUserId(rs.getInt("id"));
                 user.setFirstName(rs.getString("first_name"));
                 user.setLastName(rs.getString("last_name"));
-                user.setUserRole(Role.valueOf(rs.getString("role")));
+                user.setUserRole(role);
                 user.setUserEmail(rs.getString("email"));
                 user.setPasswordHash(rs.getString("password_hash"));
 
@@ -98,13 +104,16 @@ public class UserDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+            	int roleId = rs.getInt("role_id");
+
+                Role role = RoleDAO.findById(roleId);
 
                 User user = new User();
 
                 user.setUserId(rs.getInt("id"));
                 user.setFirstName(rs.getString("first_name"));
                 user.setLastName(rs.getString("last_name"));
-                user.setUserRole(Role.valueOf(rs.getString("role")));
+                user.setUserRole(role);
                 user.setUserEmail(rs.getString("email"));
                 user.setPasswordHash(rs.getString("password_hash"));
 
@@ -139,7 +148,7 @@ public class UserDAO {
 
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
-            ps.setString(3, user.getUserRole().name());
+            ps.setInt(3, user.getUserRole().getId());
             ps.setString(4, user.getUserEmail());
             ps.setString(5, user.getPasswordHash());
             ps.setInt(6, user.getUserId());
